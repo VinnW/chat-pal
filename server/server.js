@@ -7,7 +7,6 @@ const { Server } = require("socket.io");
 
 const admin = require("firebase-admin");
 const serviceAccount = require("./chat-pal-1801e-firebase-adminsdk-jitgf-02bea66218.json");
-const e = require('express');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -38,17 +37,24 @@ io.on('connection', (socket) => {
   
   // signUp.tsx backend function
   socket.on("login_register_user", (username, gmail) => {
-    db.collection("users").where("gmail", "==", gmail).get().then((querySnapshot) => {
-      if(querySnapshot.empty){
-        User['username'] = username
-        User['gmail'] = gmail
-        db.collection("users").add(User).then((docRef) => {
-          console.log("Document written with ID: ", docRef.id);
-        })
-      }else{
-        console.log(`${gmail} has logged in!`)
-      }
+    db.collection("users").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        if(doc.data().gmail == gmail){
+          User = doc.data()
+          return console.log(`User ${User.gmail} has logged in`)
+        }
+      })
     })
+    
+    console.log(signedUser)
+    if(signedUser == false){
+      User['userName'] = username
+      User['gmail'] = gmail
+      User['contacts'] = []
+      db.collection("users").add(User).then((docRef) => {
+        console.log(`User with id: ${docRef.id}\ngmail: ${User.gmail}\nusername: ${User.userName}\nhas been registered`);
+      })
+    }
   })
   // signUp.tsx backend function
 
