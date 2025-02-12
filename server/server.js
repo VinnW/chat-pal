@@ -6,7 +6,7 @@ const http = require('http');
 const { Server } = require("socket.io");
 
 const admin = require("firebase-admin");
-const serviceAccount = require("./chat-pal-1801e-firebase-adminsdk-jitgf-02bea66218.json");
+const serviceAccount = require("./chat-pal-1801e-firebase-adminsdk-jitgf-1f5d8f88d0.json");
 
 
 admin.initializeApp({
@@ -20,7 +20,7 @@ app.use(cors())
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5174",
+    origin: "http://localhost:5173",
     methods: ["GET", "POST", "PUT", "DELETE"]
   }
 })
@@ -32,7 +32,18 @@ io.on('connection', (socket) => {
   // signUp.tsx backend function
   socket.on("login_register_user", (username, gmail) => {
     db.collection("users").where("gmail", "==", gmail).get().then((querySnapshot) => {
+      if(querySnapshot.empty){
+        const User = {
+          username: username,
+          gmail: gmail,
+          contacts: []
+        }
+        db.collection("users").add(User).then((docRef) => {
+          console.log(`${gmail} has signed up with ID: ${docRef.id}`)
+        })
+      }else{
         console.log(`${gmail} has logged in`)
+      }
     })
   })
   // signUp.tsx backend function
@@ -46,6 +57,6 @@ io.on('connection', (socket) => {
 
 
 
-server.listen(8090, () => {
-  console.log('listening on PORT: 8090');
+server.listen(8080, () => {
+  console.log('listening on PORT: 8080');
 })
