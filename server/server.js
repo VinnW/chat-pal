@@ -7,7 +7,6 @@ const { Server } = require("socket.io");
 
 const admin = require("firebase-admin");
 const serviceAccount = require("./chat-pal-1801e-firebase-adminsdk-jitgf-02bea66218.json");
-const { sign } = require('crypto');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
