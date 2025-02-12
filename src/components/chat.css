@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body{
+    background: #222831;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;;
+}
+
+.left-container{
+    width: 320px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #030303;
+    margin: 0;
+}
+
+.right-container{
+    width: calc(100vw - 320px);
+    height: 98vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.chat-text{
+    font-family: "Poppins", sans-serif;
+    display: inline;
+    text-align: left;
+    font-weight: 600;
+    font-size: 40px;
+    margin: 0;
+    margin-left: 30px;
+    color: #EEEEEE;
+}
+
+.bottom-func{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    justify-content: left;
+    margin: 0;
+    margin-left: 40px;
+    margin-bottom: 13px;
+}
+
+.chat-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.bubble-chat-text{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: 50px;
+    color: #EEEEEE;
+}
+
+.bubble-chat-container{
+    background: transparent;
+}
+
+.message-input{
+    width: 700px;
+    margin-right: 10px;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid #030303;
+    background-color: #EEEEEE;
+}
+
+.send-btn{
+    width: 70px;
+    background-color: #00ADB5;
+    border-radius: 5px;
+    border: 1px solid #030303;
+    cursor: pointer;
+}
+
+.chat-title-options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.burger-options{
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.options-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.add-contacts-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 35px;
+}
+
+.add-contacts-container:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.add-contacts-icon{
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+.add-contacts {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #EEEEEE;
+}
+
+.add-contact-header{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    margin-top: 10px;
+    margin-left: 45px;
+    color: #EEEEEE;
+}
+
+.username-input{
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid #030303;
+    margin-left: 180px;
+}
+
+.add-contact-btn{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #030303;
+    margin-left: 320px;
+    margin-top: 20px;
+    background-color: #00ADB5;
+    color: #030303;
+    cursor: pointer;
+}
