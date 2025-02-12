@@ -6,7 +6,7 @@ import googleLogo from './assets/google-logo.png';
 import facebookLogo from './assets/facebook-logo.png';
 import io from 'socket.io-client'
 
-const socket = io("http://localhost:8080")
+const socket = io("http://localhost:8090")
 
 // Firebase Frontend Google Auth Setup
 const firebaseConfig = {
