@@ -10,9 +10,10 @@ import io from 'socket.io-client'
 const socket = io("http://localhost:8080")
 
 function Chat(){
-  const [showChat, setShowChat] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
+  const [showChat, setShowChat] = useState(false)
   const [showAddContact, setShowAddContact] = useState(false)
+  const [showFriendRequests, setShowFriendRequests] = useState(false)
   
   const [text, setText] = useState("")
   const [messages, setMessages] = useState<string[]>([])
@@ -68,7 +69,7 @@ function Chat(){
               <p className='add-contacts'>Add Contact</p>
             </div>
 
-            <div className='friend-requests-container'>
+            <div className='friend-requests-container' onClick={() => setShowFriendRequests(!showFriendRequests)}>
               <img className='friend-requests-icon' src={FriendRequestIcon}></img>
               <p className='friend-requests'>Friend Requests</p>
             </div>
