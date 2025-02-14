@@ -4,6 +4,7 @@ import Person from './person.tsx'
 import BlankProfilePic from './assets/blank-pp.png'
 import OptionsIcon from './assets/options-lines.png'
 import AddContactIcon from './assets/add-contact.png'
+import FriendRequestIcon from './assets/friendRequest.png'
 import io from 'socket.io-client'
 
 const socket = io("http://localhost:8080")
@@ -65,6 +66,11 @@ function Chat(){
             <div className='add-contacts-container' onClick={() => setShowAddContact(!showAddContact)}>
               <img className='add-contacts-icon' src={AddContactIcon}></img>
               <p className='add-contacts'>Add Contact</p>
+            </div>
+
+            <div className='friend-requests-container'>
+              <img className='friend-requests-icon' src={FriendRequestIcon}></img>
+              <p className='friend-requests'>Friend Requests</p>
             </div>
           </div>
         )}
